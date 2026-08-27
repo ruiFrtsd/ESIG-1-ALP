@@ -1,0 +1,6 @@
+largeur = int(input("Entrez la largeur : "))
+longeur = int(input("Entrez la longeur : "))
+hauteur = int(input("Entrez la hauteur : "))
+print("Le volume est : ", largeur*longeur*hauteur, "m3")
+print("Le la surface au sol est : ", largeur*longeur, "m2")
+print("Le volume est : ", 2*(hauteur*longeur+hauteur*largeur+longeur*largeur) , "m2")
