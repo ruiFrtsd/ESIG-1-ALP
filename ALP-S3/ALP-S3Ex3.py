@@ -5,24 +5,25 @@ RABAIS = 0.1
 QUANTITE_PASS = 100
 # Procédures et fonctions
 def entree():
-    prixUnit = int(input("Entrez prix unitaire : "))
-    quantiteUnit = int(input("Entrez nombres de pièce(s) : "))
-    prixAvantRabais = prixUnit*quantiteUnit
-    return prixAvantRabais
+    prix_unit = int(input("Entrez prix unitaire : "))
+    quantite_unit = int(input("Entrez nombres de pièce(s) : "))
+    prix_avant_rabais = prix_unit*quantite_unit
+    return prixUnit,quantiteUnit,prix_avant_rabais
 
-def calculer_rabais(prixAvantRabais):
-    if quantiteUnit <= QUANTITE_PASS :
+def calculer_rabais(quantite_unit, prix_avant_rabais):
+    if quantite_unit <= QUANTITE_PASS :
         taux = 0
     else :
-        taux = prixAvantRabais * RABAIS
+        taux = prix_avant_rabais * RABAIS
     return taux        
 
-
+def caca():
+    print("caca")
 def afficher(taux)
-    print("Le prix pour ", quantiteUnit, "est :")
+    print("Le prix pour ", quantite_unit, "est :")
     print("prix avant rabais : ", prixUnit*quantiteUnit)
     print("montant du rabais : ", taux)
-    print("prix à payer : ", prixAvantRabais-rabais)
+    print("prix à payer : ", prix_avant_rabais-rabais)
 
 # Procédure main()
 def main():
