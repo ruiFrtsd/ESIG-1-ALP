@@ -7,10 +7,13 @@ PRIX_DEBOUT = 20
 PRIX_ASSISES = 30
 # Procédures et fonctions
 def entree():
-    place_debout = int(input("Combien de place debout :"))
-    place_assises = int(input("Combien de place assises :"))
+    haut_ou_bas = int(input("Quel type de place souhaitez vous ? [1 => place debout, 2 => place assise]"))
+    if haut_ou_bas == 1:
+        place_debout = int(input("Combien de place debout :"))
+    else:
+        place_assises = int(input("Combien de place assises :"))
     
-    return place_debout,place_assises
+    return place_debout,place_assises,
 
 def calculer(place_debout,place_assises):
     prix_final_debout = 0
