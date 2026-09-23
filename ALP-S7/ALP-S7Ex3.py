@@ -14,7 +14,6 @@ def calculer(capital,taux,annee):
     total = capital * (1+taux/100)**annee # le "**" est utiliser pour calculer une puissance
     return total
 
-##faux faire avec une boucle for mdr
 
 # Procédure main()
 def main():
