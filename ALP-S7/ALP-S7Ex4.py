@@ -5,11 +5,11 @@
 # Procédures et fonctions
 def entree():
     n = int(input("Entrez valeur N "))
-    
     return n
+
 def calculer(n):
     y=0
-    for i in range (0, n+1, 1):
+    for i in range (1, n+1, 1):
         print(f"{y} + {i} = {y+i}")
         y += i
         

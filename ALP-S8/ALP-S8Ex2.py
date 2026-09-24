@@ -13,8 +13,8 @@ def is_valid(n):
     
     return valide
 
-def afficher(n, fn):
-    print(f'F({n}) = {fn}')
+def afficher(i, fn):
+    print(f'F({i}) = {fn}')
     
 # Procédure main()
 def main():
@@ -22,17 +22,20 @@ def main():
     if is_valid(n):
         f0 = 0
         f1 = 1
+        fn = 0 
         afficher(0,f0)
         afficher(1,f1)
-        for i in range(2,n+1):
+        i=2
+        while n > fn:
             fn = f0 + f1
-            afficher(i, fn)
-            f0=f1
-            f1=fn
-           
-# Appel de la procédure main()
+            if fn < n :
+                afficher(i, fn)
+            f0 = f1
+            f1 = fn
+            i+=1
 if __name__ == "__main__":
     main()
+
 
 
 
