@@ -42,9 +42,15 @@ def nieme_valeur_de_la_liste(liste,n):
     else:
         print('La liste fournie est vide')
     
+def afficher_liste(liste):
+    if liste:
+        for element_dans_liste in liste:
+            print(element_dans_liste)
+    else:
+        print('La liste fournie est vide') 
 # Procédure main()
 def main():
-    afficher_liste(L1_FLO)
+    afficher_liste(L10_INT)
     
 # Appel de la procédure main()
 if __name__ == "__main__":
