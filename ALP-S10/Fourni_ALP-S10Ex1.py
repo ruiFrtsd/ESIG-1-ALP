@@ -37,12 +37,16 @@ def afficher_msg(code_erreur,valeur,position=-1):
 # avec un code correspondant à cette analyse :
 # - pour chaque article du stock inconnu dans le catalogue : 
 #     Appel afficher_msg avec code_erreur = INCONNU, valeur = n° article, position = indice dans stock
-# - pour chaque article apparaissant plusieurs fois dans le stock : 
+
+#- pour chaque article apparaissant plusieurs fois dans le stock : 
 #     Appel afficher_msg avec code_erreur = MULTIPLE, valeur = n° article, position = indice dans stock
+
 # - à la fin du contrôle, si aucune erreur n'a été détectée :
 #     Appel afficher_msg avec code_erreur = OK, valeur = nombre d'articles dans le stock
+
 # - par contre, si une ou plusieurs erreurs ont été détectées :
 #     Appel afficher_msg avec code_erreur = TOTAL, valeur = nombre d'erreurs détectées
+
 # Cette procédure reçoit en paramètre:
 #    - une liste stock contenant les numéros d'article que l'utilisateur a dans son stock (type = int).
 #    - une liste catalogue contenant tous les numéros d'article existant (type = int).
@@ -52,15 +56,13 @@ def controler_le_stock(stock,catalogue):
     for i in range(len(stock)):
         print("premier for",i+1)
     
-    for element_dans_stock in stock:
-    
-        print("1")
         for element_dans_catalogue in range(len(catalogue)) :
             print("2")
-            if catalogue[element_dans_catalogue] != element_dans_stock :
+            if catalogue[element_dans_catalogue] != stock[i] :
                 print("stock pas au catalogue")
             else :
                 print("c'est en stock")
+                break 
             
 
     
