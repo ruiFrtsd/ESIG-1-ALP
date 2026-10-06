@@ -14,6 +14,7 @@ NOTE_OK = 0
 AUCUNE_NOTE = 1
 NOTE_INVALIDE = -2
 QUE_DES_INSUFFISANTS = -3
+
 NOTE_MIN = 1
 NOTE_MAX = 6
 LIMITE_SUFFISANT = 4
@@ -27,8 +28,17 @@ LIMITE_SUFFISANT = 4
 # Cette procédure reçoit en paramètre:
 #    - une liste lst_notes contenant les notes de chaque étudiant (type = int).
 def analyse_des_notes(lst_notes):
-    ''' A COMPLETER '''
-    pass
+    a_retourner = NOTE_OK
+    for note_dans_liste in lst_notes:
+        if note_dans_liste == 0 or note_dans_liste == "":
+            a_retourner = AUCUNE_NOTE
+        if note_dans_liste < NOTE_MIN or note_dans_liste > NOTE_MAX:
+            a_retourner = NOTE_INVALIDE
+        if note_dans_liste < LIMITE_SUFFISANT:
+            a_retourner = QUE_DES_INSUFFISANTS
+        
+        
+    return a_retourner
     
 # Procédure permettant d'afficher la statistique des notes, c’est-à-dire le nombre d’apparitions de chaque note (6,5,4,3,2,1) fournies en paramètre.
 # Cette procédure reçoit en paramètre:
@@ -41,13 +51,19 @@ def analyse_des_notes(lst_notes):
 #    Nombre de 2 : 1
 #    Nombre de 1 : 0
 def afficher_statistique(lst_notes):
-    ''' A COMPLETER '''
-    pass
+   for note_cible in range(NOTE_MAX, NOTE_MIN - 1, -1):
+        compteur = 0
+        for note_dans_lsite in lst_notes:
+            if note_dans_lsite == note_cible:
+                compteur += 1
+        print(f"Nombre de {note_cible} : {compteur}")
+    
 
 # Procédure main()
 # Test des procédures à développer. Ne doit (en principe) pas être modifiée.
 def main():
-    lst_notes = list(map(int,input("Entrez une liste de notes").split()))
+    #lst_notes = list(map(int,input("Entrez une liste de notes").split()))
+    lst_notes = [6,6,6,5,5,4,4,4,2]
     code = analyse_des_notes(lst_notes)
     if code == NOTE_OK:
         print("Les notes sont correctes.")

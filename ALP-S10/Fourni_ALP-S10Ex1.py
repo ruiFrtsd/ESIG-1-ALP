@@ -51,20 +51,19 @@ def afficher_msg(code_erreur,valeur,position=-1):
 #    - une liste stock contenant les numéros d'article que l'utilisateur a dans son stock (type = int).
 #    - une liste catalogue contenant tous les numéros d'article existant (type = int).
 def controler_le_stock(stock,catalogue):
-    code_erreur = OK
-    
-    for i in range(len(stock)):
-        print("premier for",i+1)
-    
-        for element_dans_catalogue in range(len(catalogue)) :
-            print("2")
-            if catalogue[element_dans_catalogue] != stock[i] :
-                print("stock pas au catalogue")
-            else :
-                print("c'est en stock")
-                break 
-            
+    cpt = 0
+    for element_stock in stock:
+        if existe_dans_catalogue(element_stock,catalogue):
+            print(f"Cellule d'indice {cpt}, l'article n°{element_stock}, est dans les 2 listes ",sep='')
+        else :
+            print(f"Cellule d'indice {cpt}, l'article n°{element_stock}, n'est pas trouvé ",sep='')
+        cpt+=1           
 
+def existe_dans_catalogue(un_composant,liste):
+    for composant in liste:
+        if composant == un_composant:
+            return True
+    return False
     
 # Procédure main()
 # Charge le catalogue avec tous les articles existants et contrôle le stock fourni par l'utilisateur.
