@@ -51,20 +51,41 @@ def afficher_msg(code_erreur,valeur,position=-1):
 #    - une liste stock contenant les numéros d'article que l'utilisateur a dans son stock (type = int).
 #    - une liste catalogue contenant tous les numéros d'article existant (type = int).
 def controler_le_stock(stock,catalogue):
+    erreurs = 0
     cpt = 0
-    for element_stock in stock:
-        if existe_dans_catalogue(element_stock,catalogue):
-            print(f"Cellule d'indice {cpt}, l'article n°{element_stock}, est dans les 2 listes ",sep='')
-        else :
-            print(f"Cellule d'indice {cpt}, l'article n°{element_stock}, n'est pas trouvé ",sep='')
-        cpt+=1           
+    for i in range(len(stock)):
+        article_dans_stock = stock[i]
+        if existe_dans_catalogue(article_dans_stock,catalogue) == None:
+            afficher_msg(INCONNU,article_dans_stock,i)
+            erreurs += 1
+        if existe_dans_stock(article_dans_stock,stock,i) == 1:
+            afficher_msg(MULTIPLE,article_dans_stock,i)
+            erreurs += 1
+        cpt = 0
+        
+    if erreurs != 0:
+        afficher_msg(TOTAL,erreurs,1)
+    else:
+        afficher_msg(OK,len(stock),i) 
+         
+def existe_dans_catalogue(element_recherche,liste):
+    i = 0
+    pos = None
+    while i < len(liste) and pos == None:
+        if liste[i] == element_recherche:
+            pos = i
+        i += 1
+    return pos
 
-def existe_dans_catalogue(un_composant,liste):
-    for composant in liste:
-        if composant == un_composant:
-            return True
-    return False
-    
+def existe_dans_stock(element_recherche,liste,indice=+1):
+    i = 0
+    pos = None
+    while i < indice and pos == None:
+        if liste[i] == element_recherche:
+            pos = 1
+        i += 1
+    return pos
+
 # Procédure main()
 # Charge le catalogue avec tous les articles existants et contrôle le stock fourni par l'utilisateur.
 # Ne doit (en principe) pas être modifiée.
