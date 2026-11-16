@@ -2,6 +2,7 @@
 
 # Constantes
 TAHLESPACE = " "
+
 # Procédures et fonctions
 def escalierDescendant(mot):
     for i in range(0, len(mot), 1):
@@ -9,14 +10,10 @@ def escalierDescendant(mot):
     
 
 def escalierMontant(mot):
-    out,out2 = "",""
-    for z in range(len(mot)):
-        out += TAHLESPACE
-    
-    for i in range(len(mot)-1, 0 , -1):
-        out2 = out.strip(TAHLESPACE)
-        print(out, mot[i],i)
-   
+    n = len(mot)
+    for i in range(n):
+        nb_espaces = (n - 1) - i
+        print(TAHLESPACE * nb_espaces, mot[i])
 
 # Procédure main()
 def main():
