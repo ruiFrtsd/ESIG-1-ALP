@@ -1,7 +1,7 @@
 # Imports
 
 # Constantes
-D = {'nom': 'Dupuis', 'prenom': 'Jacque', 'age': 30}
+
 # Procédures et fonctions
 
 # Procédure main()
